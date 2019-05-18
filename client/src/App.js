@@ -20,6 +20,10 @@ class App extends Component {
     }
   }
 
+  handleClick(e) {
+    e.preventDefault();
+  }
+
   render() {
     const { isAuthenticated } = this.props.auth;
 
@@ -39,13 +43,15 @@ class App extends Component {
                 placeholder='Search'
                 aria-label='Search'
               />
-              <Button
-                class='btn btn-outline-success my-2 my-sm-0'
-                type='submit'
-              >
-                Search
-              </Button>
-
+              <div class='btn btn-outline-success my-2 my-sm-0'>
+                <Button
+                  class='btn btn-outline-success my-2 my-sm-0'
+                  type='submit'
+                  onClick={this.handleClick}
+                >
+                  Search
+                </Button>
+              </div>
               {isAuthenticated() && (
                 <Button
                   id='qsLogoutBtn'
